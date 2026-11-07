@@ -1,8 +1,18 @@
 # Nodal — Multi-Tenant Identity & Access
 
-A frontend-first, **backend-ready** multi-tenant identity and authorization product for an FDE portfolio. Built with React, TypeScript, Vite, native CSS, and an async service-adapter boundary. No Supabase, Vercel, or paid hosting required for the frontend preview.
+Nodal is an interactive React and TypeScript preview for managing organization membership, roles and access. Its typed service adapter runs the demo locally.
 
 > **Security status: FRONTEND PREVIEW ONLY.** Login identities are selectable demo profiles. Role checks, invitation acceptance, audit events, and tenant separation are simulated in browser code and **are not security controls**. No email invitations are sent. Do not use this project in production or store sensitive data until a real auth backend enforces authorization and tenant isolation server-side.
+
+## Project timeline
+
+| Phase | What changed |
+| --- | --- |
+| Concept | Make multi-tenant access decisions easy to understand before connecting an identity backend. |
+| October 2026 · Interactive preview | Added organization switching, seeded identities with different roles, simulated invites, resource access checks and a workspace activity history. |
+| Testable UI | Put policy and persistence behind a typed asynchronous adapter so the interface can exercise allowed and denied actions with repeatable data. |
+
+**Design problem.** A global role badge would hide the difference between organizations. The preview lets one identity switch between a workspace where it is Owner and another where it is Viewer, then exercise the same screens with different permissions.
 
 ## What's working in the frontend preview
 
