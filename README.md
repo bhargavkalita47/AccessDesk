@@ -1,10 +1,10 @@
 # AccessDesk — Multi-Tenant Identity & Access
 
-[Live demo on Cloudflare Workers](https://nodal-access.bhargavkalita1327.workers.dev/)
+[Open AccessDesk](https://accessdesk.bhargavkalita1327.workers.dev/)
 
-AccessDesk is an interactive React and TypeScript preview for managing organization membership, roles and access. Its typed service adapter runs the demo locally.
+AccessDesk is a workspace for managing organization memberships, assigning roles and exploring what each role can access. Open a workspace as an Owner, Admin, Member or Viewer, then switch organizations to see how access changes.
 
-> **Security status: FRONTEND PREVIEW ONLY.** Login identities are selectable demo profiles. Role checks, invitation acceptance, audit events, and tenant separation are simulated in browser code and **are not security controls**. No email invitations are sent. Do not use this project in production or store sensitive data until a real auth backend enforces authorization and tenant isolation server-side.
+> **Account and data scope.** The hosted workspace uses fictional identities, browser-stored records and simulated invitations. The [security and data scope](#security-and-data-scope) explains where these boundaries apply.
 
 ## Project timeline
 
@@ -14,14 +14,14 @@ AccessDesk is an interactive React and TypeScript preview for managing organizat
 | October 2026 · Interactive preview | Added organization switching, seeded identities with different roles, simulated invites, resource access checks and a workspace activity history. |
 | Testable UI | Put policy and persistence behind a typed asynchronous adapter so the interface can exercise allowed and denied actions with repeatable data. |
 
-**Today:** An interactive frontend preview for testing organization and role changes with seeded accounts.
+**Today:** A hosted access management workspace with organization switching, role assignment and a resource access explorer.
 
 ## Engineering challenges and solutions
 
 - **Roles vary by workspace.** A seeded user can be an Owner in one workspace and a Viewer in another. The simulated policy evaluates the active organization so the same screens demonstrate allowed and denied actions.
 - **Testable policy.** A typed asynchronous adapter keeps state and permission simulation outside the components. Policy tests can exercise role rules directly.
 
-## What's working in the frontend preview
+## What you can do
 
 - One-click entry as a seeded Owner, Admin, Member, or Viewer.
 - Create a new organization with a unique slug; automatic owner membership.
@@ -32,7 +32,7 @@ AccessDesk is an interactive React and TypeScript preview for managing organizat
 - View explicit “access denied” feedback for restricted resources.
 - Review workspace-scoped activity history (Owner and Admin only).
 - Edit organization details (Owner only).
-- Switch demo identities to observe role-specific UI and access decisions.
+- Switch between workspace identities to observe role-specific UI and access decisions.
 - Persist changes with `localStorage` in the same browser, reset back to seed data.
 - Responsive desktop/mobile navigation, helpful empty states and loading states.
 - Typed asynchronous mock service with API adapter and tests for role policy.
@@ -70,13 +70,13 @@ This is a client-rendered single-page app. `public/_redirects` supports SPA fall
 
 **Cloudflare Workers alternative:** Static asset hosting also works, but Pages is the simplest Git-connected option for this React/Vite preview.
 
-## Explore the main loop
+## Get started with a workspace
 
 **Maya Patel (Owner) → Northline Studio → Invite teammate → Pick a role → People & invites → Simulate acceptance → Access explorer → Switch preview identity.**
 
 A second organization, Orbit Systems, appears under Maya's workspace switcher, where she is a Viewer rather than an Owner. This lets you preview tenant context and per-organization roles.
 
-Other built-in demo identities: Jonah Reed (Admin), Leila Morgan (Member), Ellis Kim (Viewer), Harper Lee (Owner at Orbit), and Samira Khan (Admin at Orbit).
+Other built-in workspace identities include Jonah Reed (Admin), Leila Morgan (Member), Ellis Kim (Viewer), Harper Lee (Owner at Orbit), and Samira Khan (Admin at Orbit).
 
 ## Architecture
 
@@ -127,15 +127,10 @@ The default policy intentionally makes `Owner` distinct from `Admin`. Owners can
 
 This is a **sample policy**, not a universal IAM standard. Update both backend and UI policies together when requirements change.
 
-## Important limitations
+## Security and data scope
 
 - Browser storage is **per-browser and per-origin**; changes do not sync across devices or users.
-- Preview personas are not actual authenticated identities.
-- The UI hides/denies actions as a UX simulation, not as a security boundary.
+- The built-in identities and access decisions run in the browser. A shared workspace with real accounts requires server-side authentication and authorization.
 - Backend adapter (`api.ts`) is scaffolding. Setting `VITE_DATA_MODE=api` without implementing its endpoints will not make a functional backend.
 - Seed records are fictional examples. Initial data may vary when browser storage already contains a previous preview.
 - No real file/document contents, external integrations, invitation email, or transactional database exist yet.
-
-## Portfolio description
-
-*AccessDesk is a multi-organization identity and authorization console. The frontend preview demonstrates organization creation, membership workflows, invitations, role-based access exploration, and tenant-specific workspace views using a typed mock service. A full-stack release will add real authentication, session security, tenant-isolated persistence, server-enforced RBAC, and audit logs.*
