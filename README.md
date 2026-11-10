@@ -1,8 +1,8 @@
-# Nodal — Multi-Tenant Identity & Access
+# AccessDesk — Multi-Tenant Identity & Access
 
 [Live demo on Cloudflare Workers](https://nodal-access.bhargavkalita1327.workers.dev/)
 
-Nodal is an interactive React and TypeScript preview for managing organization membership, roles and access. Its typed service adapter runs the demo locally.
+AccessDesk is an interactive React and TypeScript preview for managing organization membership, roles and access. Its typed service adapter runs the demo locally.
 
 > **Security status: FRONTEND PREVIEW ONLY.** Login identities are selectable demo profiles. Role checks, invitation acceptance, audit events, and tenant separation are simulated in browser code and **are not security controls**. No email invitations are sent. Do not use this project in production or store sensitive data until a real auth backend enforces authorization and tenant isolation server-side.
 
@@ -94,7 +94,7 @@ src/
     mock.ts            Asynchronous localStorage adapter
     api.ts             HTTP/cookie-session adapter scaffold
     index.ts           Adapter selection through environment setting
-  styles/main.css      Bespoke Nodal design language, desktop and mobile
+  styles/main.css      Bespoke AccessDesk design language, desktop and mobile
   App.tsx              Pages, workflows, navigation, modals, app state
   main.tsx             React entry
 public/
@@ -138,4 +138,4 @@ This is a **sample policy**, not a universal IAM standard. Update both backend a
 
 ## Portfolio description
 
-*Nodal is a multi-organization identity and authorization console. The frontend preview demonstrates organization creation, membership workflows, invitations, role-based access exploration, and tenant-specific workspace views using a typed mock service. A full-stack release will add real authentication, session security, tenant-isolated persistence, server-enforced RBAC, and audit logs.*
+*AccessDesk is a multi-organization identity and authorization console. The frontend preview demonstrates organization creation, membership workflows, invitations, role-based access exploration, and tenant-specific workspace views using a typed mock service. A full-stack release will add real authentication, session security, tenant-isolated persistence, server-enforced RBAC, and audit logs.*
