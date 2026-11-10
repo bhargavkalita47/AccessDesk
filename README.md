@@ -12,7 +12,12 @@ Nodal is an interactive React and TypeScript preview for managing organization m
 | October 2026 · Interactive preview | Added organization switching, seeded identities with different roles, simulated invites, resource access checks and a workspace activity history. |
 | Testable UI | Put policy and persistence behind a typed asynchronous adapter so the interface can exercise allowed and denied actions with repeatable data. |
 
-**Design problem.** A global role badge would hide the difference between organizations. The preview lets one identity switch between a workspace where it is Owner and another where it is Viewer, then exercise the same screens with different permissions.
+**Today:** An interactive frontend preview for testing organization and role changes with seeded accounts.
+
+## Engineering challenges and solutions
+
+- **Roles vary by workspace.** A seeded user can be an Owner in one workspace and a Viewer in another. The simulated policy evaluates the active organization so the same screens demonstrate allowed and denied actions.
+- **Testable policy.** A typed asynchronous adapter keeps state and permission simulation outside the components. Policy tests can exercise role rules directly.
 
 ## What's working in the frontend preview
 
