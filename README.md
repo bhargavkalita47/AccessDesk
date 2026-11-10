@@ -1,10 +1,19 @@
-# AccessDesk — Multi-Tenant Identity & Access
+# AccessDesk — Multi-Tenant Identity & Access Management
 
 [Open AccessDesk](https://accessdesk.bhargavkalita1327.workers.dev/)
 
-AccessDesk is a workspace for managing organization memberships, assigning roles and exploring what each role can access. Open a workspace as an Owner, Admin, Member or Viewer, then switch organizations to see how access changes.
+AccessDesk is an organisation and access management workspace that brings memberships, roles, invitations and resource permissions into one interface. It models how a person can hold different roles in separate organisations and how those roles determine permitted actions.
 
-> **Account and data scope.** The hosted workspace uses fictional identities, browser-stored records and simulated invitations. The [security and data scope](#security-and-data-scope) explains where these boundaries apply.
+## Product capabilities
+
+- Create and switch organisations; manage memberships and invitations.
+- Assign Owner, Admin, Member and Viewer roles with workspace-specific permissions.
+- Inspect protected resources, allowed and denied access, and activity history.
+- Use a typed service contract and testable policy engine to keep access logic separate from interface components.
+
+**Stack:** React · TypeScript · Vite · Vitest · Cloudflare hosting
+
+**Deployment scope:** The hosted workspace uses browser-scoped records and simulated identity/invitation workflows. It is an interactive access-management application, not an external identity provider; real server-side authentication, tenant isolation and invitation delivery require the documented backend integration.
 
 ## Project timeline
 
