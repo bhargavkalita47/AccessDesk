@@ -7,7 +7,7 @@ import { initials } from '../lib/utils';
 export function Logo({ inverse = false }: { inverse?: boolean }) {
   return <span className={`brand ${inverse ? 'brand-inverse' : ''}`}>
     <span className="brand-mark" aria-hidden="true"><i /><i /><i /><i /></span>
-    <span className="brand-name">nodal<span className="brand-dot">.</span></span>
+    <span className="brand-name">AccessDesk<span className="brand-dot">.</span></span>
   </span>;
 }
 export function Avatar({ user, size = 'md' }: { user: User; size?: 'sm' | 'md' | 'lg' }) {
