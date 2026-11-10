@@ -1,5 +1,7 @@
 # Nodal — Multi-Tenant Identity & Access
 
+[Live demo on Cloudflare Workers](https://nodal-access.bhargavkalita1327.workers.dev/)
+
 Nodal is an interactive React and TypeScript preview for managing organization membership, roles and access. Its typed service adapter runs the demo locally.
 
 > **Security status: FRONTEND PREVIEW ONLY.** Login identities are selectable demo profiles. Role checks, invitation acceptance, audit events, and tenant separation are simulated in browser code and **are not security controls**. No email invitations are sent. Do not use this project in production or store sensitive data until a real auth backend enforces authorization and tenant isolation server-side.
